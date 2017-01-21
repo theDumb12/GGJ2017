@@ -7,6 +7,12 @@ public class ShootyShooty : MonoBehaviour {
     public float fireSpeed;
     public float reloadTime;
     public AudioClip shootSound;
+    public int currWeapon = 0;
+    //WEAPONS:
+    // 0 = Fire
+    // 1 = Water or ice idk
+    // 2 = Wind
+    // 3 = Electricity
     private PlayerVars vars;
 
     ///public string swing = "RT";
@@ -30,9 +36,11 @@ public class ShootyShooty : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-       // Vector3 mousePt = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        // Vector3 mousePt = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         ///float swingTrig = Input.GetAxis(swing);
+        float switchLeft = Input.GetAxis("X");
+        float switchright = Input.GetAxis("B");
         float shootTrig = Input.GetAxis(shoot);
 
         if (shootTrig > 0.0f && canShoot)

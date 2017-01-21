@@ -59,19 +59,9 @@ public class CharMovement : MonoBehaviour {
          //transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z);
          GetComponent<Rigidbody2D>().angularVelocity = 0;
 
-         if (horz != 0 && vert != 0)
-         {
-            location.x += horz * speed;
-            location.y += vert * speed;
-         }
-         else if (horz != 0)
-         {
-            location.x += horz * speed;
-         }
-         else if (vert != 0)
-         {
-            location.y += vert * speed;
-         }
+         location.x += horz * speed;
+         location.y += vert * speed;
+
          transform.position = location;
 
 

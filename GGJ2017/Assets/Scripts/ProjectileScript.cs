@@ -50,6 +50,9 @@ public class ProjectileScript : MonoBehaviour {
             // Hit the player
             //coll.gameObject.GetComponent<WerewolfMovement>().hit(-coll.contacts[0].normal, force, damage);
         }
+		if (coll.gameObject.tag == "Enemy") {
+			coll.gameObject.GetComponent<BasicEnemyMove>().TakeHit();
+		}
         Destroy(gameObject);
     }
 }

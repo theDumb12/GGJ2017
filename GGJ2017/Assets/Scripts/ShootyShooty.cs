@@ -23,6 +23,7 @@ public class ShootyShooty : MonoBehaviour {
     private bool canShoot;
     private bool canSwitch = true;
     private float reload;
+    private float switchCooldown;
     private AudioSource audioSource;
 
     // Use this for initialization
@@ -56,9 +57,14 @@ public class ShootyShooty : MonoBehaviour {
             this.transform.GetChild(0).transform.RotateAround(this.transform.position, new Vector3(0, 0, 1), -90);
             canSwitch = false;
         }
-        else if(!canSwitch)
+        else if(!canSwitch && switchCooldown < weaponSwitchCooldown)
         {
-
+            switchCooldown += Time.deltaTime;
+        }
+        else if(!canSwitch && (switchCooldown >= weaponSwitchCooldown))
+        {
+            switchCooldown = 0;
+            canSwitch = true;
         }
         if (shootTrig > 0.0f && canShoot)
         {

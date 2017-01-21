@@ -23,7 +23,6 @@ public class ShootyShooty : MonoBehaviour {
     private bool canShoot;
     private bool canSwitch = true;
     private float reload;
-    private float switchVar;
     private AudioSource audioSource;
 
     // Use this for initialization
@@ -34,7 +33,6 @@ public class ShootyShooty : MonoBehaviour {
         joyAim = new Vector3(1.0f, 0.0f, 0);
         canShoot = true;
         reload = 0.0f;
-        switchVar = 0.0f;
     }
 	
 	// Update is called once per frame

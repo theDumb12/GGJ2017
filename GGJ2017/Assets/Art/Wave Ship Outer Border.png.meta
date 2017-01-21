@@ -1,15 +1,13 @@
 fileFormatVersion: 2
-guid: 5707772287eff7840814ec81a11f96c6
-timeCreated: 1485027348
+guid: 1b7eca290626c7542898bcc7abe82013
+timeCreated: 1485035282
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Wave Ship 1_0
-    21300002: Wave Ship 1_1
-    21300004: Wave Ship 1_2
-    21300006: Wave Ship 1_3
-    21300008: Wave Ship 1_4
-    21300010: Wave Ship 1_5
+    21300000: Wave Ship Outer Border_0
+    21300002: Wave Ship Outer Border_1
+    21300004: Wave Ship Outer Border_2
+    21300006: Wave Ship Outer Border_3
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -41,7 +39,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 0
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -76,80 +74,54 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Wave Ship 1_0
+      name: Wave Ship Outer Border_0
       rect:
         serializedVersion: 2
-        x: 86
-        y: 597
-        width: 80
-        height: 80
+        x: 6
+        y: 258
+        width: 248
+        height: 248
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Wave Ship 1_1
+      name: Wave Ship Outer Border_1
       rect:
         serializedVersion: 2
-        x: 342
-        y: 597
-        width: 80
-        height: 80
+        x: 262
+        y: 260
+        width: 248
+        height: 248
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Wave Ship 1_2
+      name: Wave Ship Outer Border_2
       rect:
         serializedVersion: 2
-        x: 86
-        y: 341
-        width: 80
-        height: 80
+        x: 8
+        y: 2
+        width: 248
+        height: 248
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Wave Ship 1_3
+      name: Wave Ship Outer Border_3
       rect:
         serializedVersion: 2
-        x: 342
-        y: 341
-        width: 80
-        height: 80
+        x: 264
+        y: 4
+        width: 248
+        height: 248
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Wave Ship 1_4
-      rect:
-        serializedVersion: 2
-        x: 86
-        y: 85
-        width: 80
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Wave Ship 1_5
-      rect:
-        serializedVersion: 2
-        x: 342
-        y: 85
-        width: 80
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

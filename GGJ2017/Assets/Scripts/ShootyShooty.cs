@@ -52,7 +52,7 @@ public class ShootyShooty : MonoBehaviour {
                                                         Quaternion.identity);
             Physics2D.IgnoreCollision(bullet.gameObject.GetComponent<Collider2D> (), GetComponent<Collider2D> ());
             vel3D *= fireSpeed;
-            bullet.GetComponent<ProjectileScript>().vel = new Vector2(vel3D.x, -vel3D.y);
+            bullet.GetComponent<ProjectileScript>().vel = new Vector2(-vel3D.x, vel3D.y);
             canShoot = false;
         }
         if (!canShoot && reload < reloadTime)

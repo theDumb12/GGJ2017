@@ -9,7 +9,7 @@ public class ShootyShooty : MonoBehaviour {
     public AudioClip shootSound;
     private PlayerVars vars;
 
-    public string swing = "RT";
+    ///public string swing = "RT";
     public string shoot = "LT";
 
     private Vector3 joyAim;
@@ -32,7 +32,7 @@ public class ShootyShooty : MonoBehaviour {
 
        // Vector3 mousePt = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        float swingTrig = Input.GetAxis(swing);
+        ///float swingTrig = Input.GetAxis(swing);
         float shootTrig = Input.GetAxis(shoot);
 
         if (shootTrig > 0.0f && canShoot)

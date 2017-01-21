@@ -16,10 +16,10 @@ public class PlayerVars : MonoBehaviour
     public float shootStickSensitivity = 0.88f;
 
     //public float swingTrig;
-    //public float shootTrig;
+    public float shootTrig;
 
     //public string swing = "RT";
-    //public string shoot = "LT";
+    public string shoot = "LT";
 
     public Vector3 mousePos;
 
@@ -31,10 +31,10 @@ public class PlayerVars : MonoBehaviour
         rStickX = Input.GetAxis("RHorizontal");
         rStickY = Input.GetAxis("RVertical");
 
-        aButton = Input.GetAxis("");
+        ///aButton = Input.GetAxis("");
 
         //swingTrig = Input.GetAxis(swing);
-        //shootTrig = Input.GetAxis(shoot);
+        shootTrig = Input.GetAxis(shoot);
 
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 

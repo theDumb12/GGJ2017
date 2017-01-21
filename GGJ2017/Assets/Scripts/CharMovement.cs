@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PandaMovement : MonoBehaviour {
+public class CharMovement : MonoBehaviour {
 
    public float speed = 1.0f;
    public bool moveEnabled = true;
@@ -10,6 +10,7 @@ public class PandaMovement : MonoBehaviour {
    private PlayerVars vars;
    private Animator animator;
    private bool isHit;
+    private float prevAngle;
 
 
    public float fullHealth = 10.0f;
@@ -45,8 +46,15 @@ public class PandaMovement : MonoBehaviour {
          Vector3 rightStick = new Vector3(vars.rStickX,vars.rStickY).normalized;
 
             //Vector3 targetDir = rightStick.position
-            float angle = (Mathf.Atan2(rightStick.y, -rightStick.x) * Mathf.Rad2Deg) - 90;
+            float angle = prevAngle;
+            //float angle = (Mathf.Atan2(rightStick.y, -rightStick.x) * Mathf.Rad2Deg) - 90;
+            if (rightStick.y != 0 || rightStick.x != 0)
+            {
+                angle = (Mathf.Atan2(rightStick.y, -rightStick.x) * Mathf.Rad2Deg) - 90;
+                //angle = 0;
+            }
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            prevAngle = angle;
             //transform.rotation = Quaternion.LookRotation(transform.position - mousePos, Vector3.forward);
          //transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z);
          GetComponent<Rigidbody2D>().angularVelocity = 0;

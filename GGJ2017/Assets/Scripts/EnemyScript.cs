@@ -7,9 +7,9 @@ public class EnemyScript : MonoBehaviour {
      * -Color
      * -Movement Type
      */
-    public int speed = 1;
+    public float speed = 0.3f;
     public int color = Constants.ICE;
-    public float[] origin;
+    Vector3 origin;
     public delegate void EnemyMove(float xpos, float ypos, int speed);
 
     private Rigidbody2D rb;
@@ -19,8 +19,7 @@ public class EnemyScript : MonoBehaviour {
 	void Start () {
         rb = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
-        origin [0] = transform.position.x;
-        origin[1] = transform.position.y;
+        origin = transform.position;
 	}
 	
 	// Update is called once per frame
@@ -33,7 +32,7 @@ public class EnemyScript : MonoBehaviour {
     //Moves the enemy
     private void Move(ref float xpos, ref float ypos)
     {
-        if (xpos - origin[0] < -10.0f || xpos - origin[0] > 10.0f)
+        if (xpos - origin.x < -10.0f || xpos - origin.x > 10.0f)
             speed = -speed;
 
         xpos += speed;

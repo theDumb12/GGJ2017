@@ -6,6 +6,7 @@ public class ShootyShooty : MonoBehaviour {
     public GameObject projectile;
     public float fireSpeed;
     public float reloadTime;
+    public float weaponSwitchCooldown;
     public AudioClip shootSound;
     public int currWeapon = 0;
     //WEAPONS:
@@ -20,6 +21,7 @@ public class ShootyShooty : MonoBehaviour {
 
     private Vector3 joyAim;
     private bool canShoot;
+    private bool canSwitch = true;
     private float reload;
     private AudioSource audioSource;
 
@@ -40,9 +42,24 @@ public class ShootyShooty : MonoBehaviour {
 
         ///float swingTrig = Input.GetAxis(swing);
         float switchLeft = Input.GetAxis("X");
-        float switchright = Input.GetAxis("B");
+        float switchRight = Input.GetAxis("B");
         float shootTrig = Input.GetAxis(shoot);
+        
 
+        if (switchLeft > 0.0f && canSwitch)
+        {
+            this.transform.GetChild(0).transform.RotateAround(this.transform.position, new Vector3(0, 0, 1), 90);
+            canSwitch = false;
+        }
+        else if(switchRight > 0.0f && canSwitch)
+        {
+            this.transform.GetChild(0).transform.RotateAround(this.transform.position, new Vector3(0, 0, 1), -90);
+            canSwitch = false;
+        }
+        else if(!canSwitch)
+        {
+
+        }
         if (shootTrig > 0.0f && canShoot)
         {
             audioSource.PlayOneShot(shootSound);

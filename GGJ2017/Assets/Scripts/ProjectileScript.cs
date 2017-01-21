@@ -43,9 +43,9 @@ public class ProjectileScript : MonoBehaviour {
         //Debug.Log("COLLISION ENTER FOR PROJECTILE");
         if (coll.gameObject.tag == "Player")
         {
-           coll.gameObject.GetComponent<WerewolfMovement>().TakeDamage(damage);
-           coll.gameObject.GetComponent<WerewolfMovement>().damaged = true;
-           coll.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
+           //coll.gameObject.GetComponent<WerewolfMovement>().TakeDamage(damage);
+           //coll.gameObject.GetComponent<WerewolfMovement>().damaged = true;
+           //coll.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
 
             // Hit the player
             //coll.gameObject.GetComponent<WerewolfMovement>().hit(-coll.contacts[0].normal, force, damage);

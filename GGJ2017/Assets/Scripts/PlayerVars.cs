@@ -6,6 +6,11 @@ public class PlayerVars : MonoBehaviour
     public float lStickX;
     public float lStickY;
 
+    public float aButton;
+    public float bButton;
+    public float xButton;
+    public float yButton;
+
     public float rStickX;
     public float rStickY;
     public float shootStickSensitivity = 0.88f;
@@ -25,6 +30,8 @@ public class PlayerVars : MonoBehaviour
 
         rStickX = Input.GetAxis("RHorizontal");
         rStickY = Input.GetAxis("RVertical");
+
+        aButton = Input.GetAxis("");
 
         //swingTrig = Input.GetAxis(swing);
         //shootTrig = Input.GetAxis(shoot);

@@ -7,9 +7,15 @@ public class ShootyShooty : MonoBehaviour {
     public float fireSpeed;
     public float reloadTime;
     public AudioClip shootSound;
+    public int currWeapon = 0;
+    //WEAPONS:
+    // 0 = Fire
+    // 1 = Water or ice idk
+    // 2 = Wind
+    // 3 = Electricity
     private PlayerVars vars;
 
-    public string swing = "RT";
+    ///public string swing = "RT";
     public string shoot = "LT";
 
     private Vector3 joyAim;
@@ -30,9 +36,11 @@ public class ShootyShooty : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-       // Vector3 mousePt = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        // Vector3 mousePt = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        float swingTrig = Input.GetAxis(swing);
+        ///float swingTrig = Input.GetAxis(swing);
+        float switchLeft = Input.GetAxis("X");
+        float switchright = Input.GetAxis("B");
         float shootTrig = Input.GetAxis(shoot);
 
         if (shootTrig > 0.0f && canShoot)
@@ -47,12 +55,15 @@ public class ShootyShooty : MonoBehaviour {
                 vel3D.Set(0.0f,1.0f,0.0f);
             }
 
+            Vector3 fireOffset = vel3D;
+            fireOffset.x *= -1;
+
             GameObject bullet = (GameObject)Instantiate(projectile,
-                                                        transform.position,
+                                                        transform.position + fireOffset,
                                                         Quaternion.identity);
             Physics2D.IgnoreCollision(bullet.gameObject.GetComponent<Collider2D> (), GetComponent<Collider2D> ());
             vel3D *= fireSpeed;
-            bullet.GetComponent<ProjectileScript>().vel = new Vector2(vel3D.x, -vel3D.y);
+            bullet.GetComponent<ProjectileScript>().vel = new Vector2(-vel3D.x, vel3D.y);
             canShoot = false;
         }
         if (!canShoot && reload < reloadTime)

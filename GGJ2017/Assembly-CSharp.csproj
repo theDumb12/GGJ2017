@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\CharMovement.cs" />
+     <Compile Include="Assets\Scripts\EnemyScript.cs" />
      <Compile Include="Assets\Scripts\Ignorethis.cs" />
      <Compile Include="Assets\Scripts\PlayerVars.cs" />
      <Compile Include="Assets\Scripts\ProjectileScript.cs" />

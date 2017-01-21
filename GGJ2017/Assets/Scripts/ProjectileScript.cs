@@ -18,7 +18,7 @@ public class ProjectileScript : MonoBehaviour {
     // Use this for initialization
     void Start () {
         rb = gameObject.GetComponent<Rigidbody2D>();
-        rb.velocity = vel;
+        rb.velocity = vel * speed;
         Vector3 dir = rb.velocity;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);

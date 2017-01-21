@@ -45,12 +45,6 @@ public class PlayerVars : MonoBehaviour
             rStickX = -1 * mousePt.x / mousePt.magnitude;
             rStickY = mousePt.y / mousePt.magnitude;
         }
-        //if (Input.GetMouseButtonDown(0))
-        //{
-
-        //shootTrig = 1.0f;
-
-        //}
     }
 
     public void newGame()

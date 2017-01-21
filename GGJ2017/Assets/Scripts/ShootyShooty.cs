@@ -47,8 +47,11 @@ public class ShootyShooty : MonoBehaviour {
                 vel3D.Set(0.0f,1.0f,0.0f);
             }
 
+            Vector3 fireOffset = vel3D;
+            fireOffset.x *= -1;
+
             GameObject bullet = (GameObject)Instantiate(projectile,
-                                                        transform.position,
+                                                        transform.position + fireOffset,
                                                         Quaternion.identity);
             Physics2D.IgnoreCollision(bullet.gameObject.GetComponent<Collider2D> (), GetComponent<Collider2D> ());
             vel3D *= fireSpeed;

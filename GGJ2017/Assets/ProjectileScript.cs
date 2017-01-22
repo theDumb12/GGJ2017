@@ -8,6 +8,7 @@ public class ProjectileScript : MonoBehaviour {
     public float speed;
     public float damage = 1;
     public float maxLifetime;
+    public bool doesDamage;
 
     private float lifetime;
     private Rigidbody2D rb;
@@ -50,9 +51,12 @@ public class ProjectileScript : MonoBehaviour {
             // Hit the player
             //coll.gameObject.GetComponent<WerewolfMovement>().hit(-coll.contacts[0].normal, force, damage);
         }
-		if (coll.gameObject.tag == "Enemy") {
+		if (coll.gameObject.tag == "Enemy" && doesDamage) {
 			coll.gameObject.GetComponent<BasicEnemyMove>().TakeHit();
 		}
-        Destroy(gameObject);
+        if(doesDamage)
+        {
+            Destroy(gameObject);
+        }
     }
 }

@@ -51,15 +51,15 @@ public class ShootyShooty : MonoBehaviour {
 
         if (switchLeft > 0.0f && canSwitch)
         {
-            this.transform.GetChild(0).transform.RotateAround(this.transform.position, new Vector3(0, 0, 1), 90);
-            canSwitch = false;
-            currWeapon = toRight(currWeapon);
-        }
-        else if(switchRight > 0.0f && canSwitch)
-        {
             this.transform.GetChild(0).transform.RotateAround(this.transform.position, new Vector3(0, 0, 1), -90);
             canSwitch = false;
             currWeapon = toLeft(currWeapon);
+        }
+        else if(switchRight > 0.0f && canSwitch)
+        {
+            this.transform.GetChild(0).transform.RotateAround(this.transform.position, new Vector3(0, 0, 1), 90);
+            canSwitch = false;
+            currWeapon = toRight(currWeapon);
         }
         else if(!canSwitch && switchCooldown < weaponSwitchCooldown)
         {

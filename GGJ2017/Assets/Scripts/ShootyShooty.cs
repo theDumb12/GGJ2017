@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ShootyShooty : MonoBehaviour {
 
-    public GameObject projectile;
+    public GameObject[] projectiles;
     public float fireSpeed;
     public float reloadTime;
     public float weaponSwitchCooldown;
@@ -15,7 +15,7 @@ public class ShootyShooty : MonoBehaviour {
     // 2 = Ice
     // 3 = Wind
     public Sprite[] currWeaponSpriteArr;
-    public RuntimeAnimatorController[] currWeaponAnimArr;
+    //public Animation[] currWeaponAnimArr;
     private PlayerVars vars;
 
     ///public string swing = "RT";
@@ -85,7 +85,7 @@ public class ShootyShooty : MonoBehaviour {
             Vector3 fireOffset = vel3D;
             fireOffset.x *= -1.2f;
 
-            GameObject bullet = (GameObject)Instantiate(projectile,
+            GameObject bullet = (GameObject)Instantiate(projectiles[currWeapon],
                                                         transform.position + fireOffset,
                                                         Quaternion.identity);
             setSprite(bullet);
@@ -132,6 +132,6 @@ public class ShootyShooty : MonoBehaviour {
         // 2 = Ice
         // 3 = Wind
         bullet.GetComponent<SpriteRenderer>().sprite = currWeaponSpriteArr[currWeapon];
-        bullet.GetComponent<Animator>().runtimeAnimatorController = currWeaponAnimArr[currWeapon];
+        //bullet.GetComponent<Animation>() = currWeaponAnimArr[currWeapon];
     }
 }

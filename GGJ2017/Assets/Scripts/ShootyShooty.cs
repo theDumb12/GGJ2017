@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ShootyShooty : MonoBehaviour {
 
-    public GameObject projectile;
+    public GameObject[] projectiles;
     public float fireSpeed;
     public float reloadTime;
     public float weaponSwitchCooldown;
@@ -11,9 +11,11 @@ public class ShootyShooty : MonoBehaviour {
     public int currWeapon = 0;
     //WEAPONS:
     // 0 = Fire
-    // 1 = Water or ice idk
-    // 2 = Wind
-    // 3 = Electricity
+    // 1 = Electricity
+    // 2 = Ice
+    // 3 = Wind
+    public Sprite[] currWeaponSpriteArr;
+    //public Animation[] currWeaponAnimArr;
     private PlayerVars vars;
 
     ///public string swing = "RT";
@@ -51,11 +53,13 @@ public class ShootyShooty : MonoBehaviour {
         {
             this.transform.GetChild(0).transform.RotateAround(this.transform.position, new Vector3(0, 0, 1), 90);
             canSwitch = false;
+            currWeapon = toRight(currWeapon);
         }
         else if(switchRight > 0.0f && canSwitch)
         {
             this.transform.GetChild(0).transform.RotateAround(this.transform.position, new Vector3(0, 0, 1), -90);
             canSwitch = false;
+            currWeapon = toLeft(currWeapon);
         }
         else if(!canSwitch && switchCooldown < weaponSwitchCooldown)
         {
@@ -79,11 +83,12 @@ public class ShootyShooty : MonoBehaviour {
             }
 
             Vector3 fireOffset = vel3D;
-            fireOffset.x *= -1;
+            fireOffset.x *= -1.2f;
 
-            GameObject bullet = (GameObject)Instantiate(projectile,
+            GameObject bullet = (GameObject)Instantiate(projectiles[currWeapon],
                                                         transform.position + fireOffset,
                                                         Quaternion.identity);
+            setSprite(bullet);
             Physics2D.IgnoreCollision(bullet.gameObject.GetComponent<Collider2D> (), GetComponent<Collider2D> ());
             vel3D *= fireSpeed;
             bullet.GetComponent<ProjectileScript>().vel = new Vector2(-vel3D.x, vel3D.y);
@@ -98,5 +103,35 @@ public class ShootyShooty : MonoBehaviour {
             canShoot = true;
             reload = 0;
         }
+    }
+
+    int toLeft(int currWeapon)
+    {
+        if(currWeapon == 0)
+        {
+            return 3;
+        }
+        else
+            return currWeapon - 1;
+    }
+    int toRight(int currWeapon)
+    {
+        if (currWeapon == 3)
+        {
+            return 0;
+        }
+        else
+            return currWeapon + 1;
+    }
+
+    void setSprite(GameObject bullet)
+    {
+        //WEAPONS:
+        // 0 = Fire
+        // 1 = Electricity
+        // 2 = Ice
+        // 3 = Wind
+        bullet.GetComponent<SpriteRenderer>().sprite = currWeaponSpriteArr[currWeapon];
+        //bullet.GetComponent<Animation>() = currWeaponAnimArr[currWeapon];
     }
 }

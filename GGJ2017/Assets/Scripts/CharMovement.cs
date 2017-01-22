@@ -59,6 +59,11 @@ public class CharMovement : MonoBehaviour {
          //transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z);
          GetComponent<Rigidbody2D>().angularVelocity = 0;
 
+            if (Input.GetKeyDown("left shift"))
+                speed = speed / 2;
+            else if (Input.GetKeyUp("left shift"))
+                speed = speed * 2;
+
          location.x += horz * speed;
          location.y += vert * speed;
 

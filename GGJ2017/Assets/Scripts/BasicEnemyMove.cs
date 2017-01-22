@@ -7,7 +7,8 @@ public class BasicEnemyMove : MonoBehaviour {
 	public float speed = 0.3f;
 	private Rigidbody2D rb;
 	private Animator animator;
-	private bool isHit = false;
+	private bool isHit;
+	public Transform target;
     /* defines field of movement within the camera
      * index 0 = left bound
      * index 1 = right bound
@@ -36,13 +37,10 @@ public class BasicEnemyMove : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        Vector3 location = transform.position;
+		target = GameObject.FindGameObjectWithTag ("Player").transform;
 
-        if (location.x > moveField[Constants.XMAX]-5 || location.x < moveField[Constants.XMIN]+5)
-            speed = -speed;
-
-        location.x += speed;
-        transform.position = location;
+		float step = speed * Time.deltaTime * 6.0f;
+		transform.position = Vector3.MoveTowards(transform.position, target.position, step);
 
         if (isHit)
             Destroy(gameObject);
@@ -53,6 +51,7 @@ public class BasicEnemyMove : MonoBehaviour {
 				isHit = true;
 		}
 	}
+
     private class Constants
     {
         public const int XMIN = 0;

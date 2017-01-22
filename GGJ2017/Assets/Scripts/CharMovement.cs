@@ -10,7 +10,8 @@ public class CharMovement : MonoBehaviour {
    private PlayerVars vars;
    private Animator animator;
    private bool isHit;
-    private float prevAngle;
+   private float prevAngle;
+    private float slow = 1.0f;
 
 
    public float fullHealth = 10.0f;
@@ -59,13 +60,13 @@ public class CharMovement : MonoBehaviour {
          //transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z);
          GetComponent<Rigidbody2D>().angularVelocity = 0;
 
-            if (Input.GetKeyDown("left shift"))
-                speed = speed / 2;
-            else if (Input.GetKeyUp("left shift"))
-                speed = speed * 2;
+           if (Input.GetButton("left shift"))
+               slow = 0.5f;
+           else //if(Input.GetButton)
+               slow = 1.0f;
 
-         location.x += horz * speed;
-         location.y += vert * speed;
+         location.x += horz * speed * slow;
+         location.y += vert * speed * slow;
 
          transform.position = location;
 

@@ -39,7 +39,7 @@ public class BasicEnemyMove : MonoBehaviour {
     {
 		target = GameObject.FindGameObjectWithTag ("Player").transform;
 
-		float step = speed * Time.deltaTime * 6.0f;
+		float step = speed * Time.deltaTime * 18.0f;
 		transform.position = Vector3.MoveTowards(transform.position, target.position, step);
 
         if (isHit)

@@ -59,11 +59,12 @@ public class CharMovement : MonoBehaviour {
             //transform.rotation = Quaternion.LookRotation(transform.position - mousePos, Vector3.forward);
          //transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z);
          GetComponent<Rigidbody2D>().angularVelocity = 0;
-
-           if (Input.GetButton("left shift"))
-               slow = 0.5f;
-           else //if(Input.GetButton)
-               slow = 1.0f;
+         
+         //Adjusts Character speed by holding shift
+         if (Input.GetKey("left shift"))
+            slow = 0.5f;
+         else
+            slow = 1.0f;
 
          location.x += horz * speed * slow;
          location.y += vert * speed * slow;

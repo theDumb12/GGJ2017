@@ -72,7 +72,7 @@ public class ShootyShooty : MonoBehaviour {
         }
         if (shootTrig > 0.0f && canShoot)
         {
-            audioSource.PlayOneShot(shootSound);
+            //audioSource.PlayOneShot(shootSound);
             joyAim = new Vector3(vars.rStickX, vars.rStickY);
 
             //Vector3 childPos = this.transform.GetChild(0).transform.localPosition;
@@ -131,7 +131,7 @@ public class ShootyShooty : MonoBehaviour {
         // 1 = Electricity
         // 2 = Ice
         // 3 = Wind
-        bullet.GetComponent<SpriteRenderer>().sprite = currWeaponSpriteArr[currWeapon];
+        //bullet.GetComponent<SpriteRenderer>().sprite = currWeaponSpriteArr[currWeapon];
         //bullet.GetComponent<Animation>() = currWeaponAnimArr[currWeapon];
     }
 }
